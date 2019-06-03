@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.SimuladorSO.MainController">
+   <children>
+      <VBox layoutY="-2.0" prefHeight="600.0" prefWidth="241.0" style="-fx-background-color: #1E1919;">
+         <children>
+            <Pane prefHeight="443.0" prefWidth="241.0" style="-fx-background-color: #1E1919;">
+               <children>
+                  <Button fx:id="panelDeControlSimulacionButton" layoutY="301.0" mnemonicParsing="false" onAction="#handleMenuBarButtons" prefHeight="43.0" prefWidth="241.0" style="-fx-background-color: #554C4C;" text="Panel de control simulacion" textFill="WHITE" />
+                  <Button fx:id="resultadosSimulacionButton" layoutY="370.0" mnemonicParsing="false" onAction="#handleMenuBarButtons" prefHeight="43.0" prefWidth="241.0" style="-fx-background-color: #554C4C;" text="Resultados simulacion" textFill="WHITE" />
+                  <Label alignment="CENTER" layoutX="5.0" layoutY="59.0" prefHeight="67.0" prefWidth="231.0" text="SimuladorSo v1.0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="configuracionSimuladorButton" layoutY="237.0" mnemonicParsing="false" onAction="#handleMenuBarButtons" prefHeight="43.0" prefWidth="241.0" style="-fx-background-color: #554C4C;" text="Configuracion simulacion" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children></VBox>
+      <AnchorPane layoutX="241.0" prefHeight="600.0" prefWidth="710.0">
+         <children>
+            <Pane fx:id="resultadosSimulacionPane" prefHeight="600.0" prefWidth="710.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <TableView layoutX="86.0" layoutY="32.0" prefHeight="248.0" prefWidth="410.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Proceso id" />
+                      <TableColumn prefWidth="127.00003051757812" text="Tiempo Respuesta" />
+                    </columns>
+                  </TableView>
+               </children></Pane>
+            <Pane fx:id="configuracionSimuladorPane" layoutY="-1.0" prefHeight="600.0" prefWidth="710.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <TableView fx:id="tabla" layoutX="82.0" layoutY="20.0" prefHeight="223.0" prefWidth="530.0">
+                     <columns>
+                        <TableColumn fx:id="id" prefWidth="75.0" text="Proceso id" />
+                        <TableColumn fx:id="tArribo" prefWidth="120.0" text="Tiempo Arribo" />
+                        <TableColumn fx:id="tam" prefWidth="86.0" text="Tamaño(KB)" />
+                        <TableColumn fx:id="rafaga" prefWidth="248.0" text="Rafaga CPU/ES" />
+                     </columns>
+                  </TableView>
+                  <TextField fx:id="insertTiempoArribo" layoutX="175.0" layoutY="256.0" prefHeight="26.0" prefWidth="105.0" promptText="Tiempo Arribo" />
+                  <TextField fx:id="insertTam" layoutX="287.0" layoutY="256.0" prefHeight="25.0" prefWidth="88.0" promptText="Tamaño(KB)" />
+                  <TextField fx:id="insertRafaga" layoutX="383.0" layoutY="256.0" prefHeight="26.0" prefWidth="149.0" promptText="Rafaga CPU/ES" />
+                  <Label layoutX="95.0" layoutY="375.0" text="Tamaño Memoria (KB)" />
+                  <TextField fx:id="memoriaTamTextField" layoutX="269.0" layoutY="371.0" prefHeight="25.0" prefWidth="105.0" />
+                  <Label layoutX="421.0" layoutY="332.0" text="Configuración Algoritmos CPU">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="95.0" layoutY="462.0" text="Cantidad de Particiones" />
+                  <TextField fx:id="planificadorQuantumTextField" layoutX="512.0" layoutY="462.0" prefHeight="25.0" prefWidth="73.0" />
+                  <Label layoutX="435.0" layoutY="467.0" text="Quantum" />
+                  <Label layoutX="95.0" layoutY="506.0" prefHeight="18.0" prefWidth="157.0" text="Tamaño Particiones(KB)" />
+                  <Label layoutX="95.0" layoutY="419.0" text="Tipo Memoria(Particiones)" />
+                  <ChoiceBox fx:id="choiceBoxTipoParticiones" layoutX="269.0" layoutY="417.0" prefHeight="28.0" prefWidth="105.0" />
+                  <TextField fx:id="tamParticionesTextField" layoutX="269.0" layoutY="502.0" prefHeight="25.0" prefWidth="105.0" />
+                  <Label layoutX="96.0" layoutY="332.0" text="Configuración Memoria">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="95.0" layoutY="552.0" text="Algoritmo Memoria" />
+                  <TextField fx:id="cantidadParticiones" layoutX="269.0" layoutY="462.0" prefHeight="25.0" prefWidth="105.0" />
+                  <TextField fx:id="insertProcesoId" layoutX="85.0" layoutY="256.0" prefHeight="26.0" prefWidth="81.0" promptText="Proceso id" />
+                  <RadioButton fx:id="memoriaFirstFitRaddioButon" layoutX="254.0" layoutY="546.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" text="First-Fit">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="memoriaToggleGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="memoriaBestFitRadioButton" layoutX="342.0" layoutY="546.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Best-Fit" toggleGroup="$memoriaToggleGroup" />
+                  <RadioButton fx:id="planificadorSJFRadioButton" layoutX="541.0" layoutY="420.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="SJF">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="cpuToggleGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="planificadorSRTFRadioButton" layoutX="435.0" layoutY="420.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="SRTF" toggleGroup="$cpuToggleGroup" />
+                  <RadioButton fx:id="planificadorRRRadioButton" layoutX="541.0" layoutY="380.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="RR" toggleGroup="$cpuToggleGroup" />
+                  <RadioButton fx:id="planificadorFCFSRaddioButton" layoutX="435.0" layoutY="380.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="FCFS" toggleGroup="$cpuToggleGroup" />
+                  <Button fx:id="insertButton" layoutX="549.0" layoutY="252.0" mnemonicParsing="false" onAction="#setTablaProcesosIngresar" prefHeight="34.0" prefWidth="64.0" style="-fx-background-color: #554C4C;" text="Insertar" textFill="WHITE" />
+                  <Separator layoutX="59.0" layoutY="316.0" prefHeight="5.0" prefWidth="614.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="panelDeControlSimuladorPane" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="710.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <TableView fx:id="tablaSim" layoutX="36.0" layoutY="23.0" prefHeight="214.0" prefWidth="647.0">
+                     <columns>
+                        <TableColumn fx:id="pid" prefWidth="75.0" text="pid" />
+                        <TableColumn fx:id="estadoProceso" prefWidth="75.0" text="estado" />
+                        <TableColumn fx:id="rafagaProceso" prefWidth="165.0" text="rafaga" />
+                     </columns>
+                  </TableView>
+                  <Label fx:id="labelProcesoCPU" layoutX="151.0" layoutY="268.0" prefHeight="18.0" prefWidth="64.0" />
+                  <Label layoutX="36.0" layoutY="269.0" text="Proceso en CPU" />
+                  <Button fx:id="iniciarSimButton" layoutX="541.0" layoutY="535.0" mnemonicParsing="false" onAction="#iniciarSimulacion" style="-fx-background-color: #554C4C;" text="Iniciar Simulacion" />
+                  <Label layoutX="36.0" layoutY="300.0" text="Clock" />
+                  <Label fx:id="labelClockCPU" layoutX="151.0" layoutY="300.0" prefHeight="18.0" prefWidth="64.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
